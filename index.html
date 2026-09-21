@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🌼</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div id="intro-screen">
+        <button id="btn-entrar">
+            <span class="btn-text">Haz clic para entrar</span>
+        </button>
+    </div>
+
+    <div id="dedicatoria" class="dedicatoria oculto">
+        <h2 id="ded-titulo"></h2>
+        <p id="ded-linea1" class="linea-1"></p>
+        <p id="ded-linea2" class="linea-2"></p>
+    </div>
+
+    <!-- Música de fondo y botón de control -->
+    <audio id="bg-music" src="audio.mp3" preload="auto" loop></audio>
+    <button id="btn-musica" class="btn-musica oculto" aria-label="Control de música" title="Pausar / Reanudar">
+        <span id="musica-icono">🔊</span>
+    </button>
+    <!-- Librería Three.js compatible con apertura directa (doble clic / file://) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

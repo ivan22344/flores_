@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background: #0a0e2a;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+canvas {
+    display: block;
+}
+
+/* Pantalla de inicio / bienvenida */
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #141b44 0%, #0a0e2a 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+#intro-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Botón interactivo */
+#btn-entrar {
+    background: linear-gradient(135deg, #ffd900, #ffb300);
+    color: #3d2300;
+    font-size: clamp(16px, 4vw, 20px);
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 36px;
+    cursor: pointer;
+    box-shadow: 0 4px 25px rgba(255, 217, 0, 0.4), 0 0 40px rgba(255, 200, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    animation: pulso 2.2s infinite ease-in-out;
+    outline: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#btn-entrar:hover {
+    transform: scale(1.06);
+    box-shadow: 0 6px 35px rgba(255, 217, 0, 0.65), 0 0 50px rgba(255, 217, 0, 0.4);
+}
+
+#btn-entrar:active {
+    transform: scale(0.97);
+}
+
+.btn-icon {
+    font-size: 1.3em;
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
+
+#btn-entrar:hover .btn-icon {
+    transform: rotate(25deg) scale(1.15);
+}
+
+@keyframes pulso {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 25px rgba(255, 217, 0, 0.4), 0 0 35px rgba(255, 200, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 6px 35px rgba(255, 217, 0, 0.7), 0 0 55px rgba(255, 217, 0, 0.45);
+    }
+}
+
+/* Dedicatoria */
+.dedicatoria {
+    position: absolute;
+    top: 6%;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    pointer-events: none;
+    z-index: 10;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: opacity 1.8s ease, transform 1.8s ease;
+}
+
+.dedicatoria.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dedicatoria h2 {
+    font-size: clamp(24px, 5vw, 40px);
+    font-weight: 700;
+    color: #ffd900;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 18px rgba(255, 217, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.85);
+    margin-bottom: 8px;
+}
+
+.dedicatoria .linea-1 {
+    font-size: clamp(16px, 3.2vw, 22px);
+    font-weight: 500;
+    color: #f7f7f7;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.dedicatoria .linea-2 {
+    font-size: clamp(14px, 2.7vw, 19px);
+    font-weight: 400;
+    color: #ffe680;
+    font-style: italic;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+    letter-spacing: 0.3px;
+}
+
+/* Control de música flotante */
+.btn-musica {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: rgba(10, 14, 42, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 217, 0, 0.4);
+    color: #ffd900;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 50;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, background 0.3s ease, opacity 0.8s ease, visibility 0.8s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-musica:hover {
+    transform: scale(1.1);
+    background: rgba(20, 28, 70, 0.85);
+    border-color: rgba(255, 217, 0, 0.8);
+}
+
+.btn-musica:active {
+    transform: scale(0.95);
+}
+
+.btn-musica.oculto {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
